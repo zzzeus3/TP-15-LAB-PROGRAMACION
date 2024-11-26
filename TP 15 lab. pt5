@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+class InstrumentoMusical {
+public:
+    virtual void tocar() const = 0; // Función virtual pura
+    virtual ~InstrumentoMusical() {}
+};
+
+class Piano : public InstrumentoMusical {
+public:
+    void tocar() const override {
+        cout << "Tocando el piano: tin tin tin..." << endl;
+    }
+};
+
+class Guitarra : public InstrumentoMusical {
+public:
+    void tocar() const override {
+        cout << "Tocando la guitarra: trum trum trum..." << endl;
+    }
+};
+
+class Flauta : public InstrumentoMusical {
+public:
+    void tocar() const override {
+        cout << "Tocando la flauta: fii fii fii..." << endl;
+    }
+};
+
+int main() {
+    InstrumentoMusical* piano = new Piano();
+    InstrumentoMusical* guitarra = new Guitarra();
+    InstrumentoMusical* flauta = new Flauta();
+
+    piano->tocar();
+    guitarra->tocar();
+    flauta->tocar();
+
+    delete piano;
+    delete guitarra;
+    delete flauta;
+
+    return 0;
+}
