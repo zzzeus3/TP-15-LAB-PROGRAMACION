@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    virtual void hacerSonido() const = 0; // Función virtual pura
+    virtual ~Animal() {}
+};
+
+class Perro : public Animal {
+public:
+    void hacerSonido() const override {
+        cout << "Guau Guau!" << endl;
+    }
+};
+
+class Gato : public Animal {
+public:
+    void hacerSonido() const override {
+        cout << "Miau Miau!" << endl;
+    }
+};
+
+class Pato : public Animal {
+public:
+    void hacerSonido() const override {
+        cout << "Cuac Cuac!" << endl;
+    }
+};
+
+int main() {
+    Animal* perro = new Perro();
+    Animal* gato = new Gato();
+    Animal* pato = new Pato();
+
+    perro->hacerSonido();
+    gato->hacerSonido();
+    pato->hacerSonido();
+
+    delete perro;
+    delete gato;
+    delete pato;
+
+    return 0;
+}
